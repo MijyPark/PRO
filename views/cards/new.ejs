@@ -1,0 +1,60 @@
+<style>
+  body {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('/images/newcard.jpg');
+    background-position: center;
+    background-size: cover;
+  }
+</style>
+<div class="memberDiv">
+  <img class="img" src="/images/Logo.png" alt="Logo">
+  <nav class="navbar">
+    <ul>
+      <li><a href="/cards">Back to All Cards</a></li>
+      <li><a href="/random">Random</a></li>
+      <li><a href="/logout">Log Out</a></li>
+    </ul>
+  </nav>
+</div>
+
+<h1 style="text-align: center; padding: 10px 0;"><%- isUpdating ? "Edit" : "Create" %> Card </h1>
+
+<form class="cardForm" method="POST" enctype="multipart/form-data" action="<%- isUpdating ? `/cards/${card._id}/update` : '/cards/new' %>">
+
+<label>Card Name: <input name="cardname" value="<%- isUpdating ? card.cardname :"" %>" /></label>
+
+<label>Category:<select name="category" >
+      <% ['Angel', 'Demon' , 'Between' ].forEach(category=> { %>
+        <option value="<%- category %>" <%- isUpdating ? (card.category===category ? "selected" : "" ) : "" %>><%-
+            category %></option>
+        <% }) %>
+    </select>
+  </label>
+
+  <label>Price: <input type="number" name="price" value="<%- isUpdating ? card.price : "0" %>" /></label>
+
+  <label>Quality:
+    <select name="quality">
+      <% ['Mint', 'Good' , 'LP' ].forEach(quality=> { %>
+        <option value="<%- quality %>" <%- isUpdating ? (card.quality===quality ? "selected" : "" ) : "" %>><%- quality
+            %></option>
+        <% }) %>
+    </select></label>
+
+  <label>Trading Option:
+    <select name="tradingOption">
+      <% ['Gold', 'Cash' ].forEach(tradingOption=> { %>
+        <option value="<%- tradingOption %>" <%- isUpdating ? (card.tradingOption===tradingOption ? "selected" : "" )
+          : "" %>><%- tradingOption %></option>
+        <% }) %>
+    </select></label>
+
+    <label for="description">Description:</label>
+    <textarea name="description" id="description" value="<%- isUpdating ? card.description.join(' ') :"" %>"></textarea><br>
+    
+    <input type = "file" name="imgUrl" accept="image/png image/jpg">
+
+
+  <button type="submit"><%- isUpdating ? "Edit" : "Create" %> Card </button>
+</form>
