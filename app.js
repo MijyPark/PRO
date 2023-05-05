@@ -17,7 +17,7 @@ require('./config')(app)
 // default value for title local
 const projectName = 'PRO2'
 
-app.locals.appTitle = `${capitalize(projectName)} created with Aziya and Mijy`
+app.locals.appTitle = `${projectName} created with Aziya and Mijy`
 
 // 👇 Start handling routes here
 const indexRoutes = require('./routes/index.routes')
