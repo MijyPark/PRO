@@ -1,2 +1,42 @@
-<h1><%= appTitle %> 🚀</h1>
-<p>Welcome Ironhacker!</p>
+<head>
+  
+  <style>
+    body{
+      width: 100%;
+      height: 100vh;
+      background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url('/images/main.jpg');
+      background-position: center;
+      background-size: cover;
+
+    }
+   
+  </style>
+  
+</head>
+<body>
+  <header class="header">
+    <div class="headingDiv">
+    <img class="img" src="/images/Logo.png" alt="Logo">
+    
+   </div>
+   <div class="navDiv">
+    <nav class="navbar">
+      <ul class="right">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li><a href="/auth/login">Get In Store</a></li>
+        <li>
+          <a href="/auth/register">Not a Member? Register HERE!</a>
+        </li>
+        
+      </ul>
+    </nav>
+  </div>
+  </header>
+  <img class="img1" src="/images/Logo.png" alt="Logo">
+  <div class="buttonDiv">
+  <button class=".button"><a href="/auth/login"><span></span>  LOG IN</a></button>
+  <button class=".button"><a href="/auth/register"><span></span>  SIGN UP</a></button>
+  </div>
+</body>

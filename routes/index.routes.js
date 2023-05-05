@@ -14,7 +14,7 @@ router.get('member', isLoggedIn, (req, res, next) => {
   res.render('member', { user: req.session.user })
 })
 
-router.get('/logout', (req, res, next) => {
+router.get('/logout', isLoggedOut, (req, res, next) => {
   req.session.destroy(err => {
     if (err) next(err)
     res.redirect('/')
