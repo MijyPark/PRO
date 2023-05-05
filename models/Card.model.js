@@ -32,7 +32,7 @@ const cardSchema = new Schema(
       required: true,
     },
     
-    image: String
+    image: String,
     
   }, 
   {

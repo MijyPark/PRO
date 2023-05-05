@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const Card = require('../models/Card.model')
-const uploader = require('../middleware/cloudinary.config.js');
+const uploader = require('../middleware/cloudinary.config.js')
+const multer = require('multer')
 
 router.get('/', async(req, res, next) => {
   try { 
